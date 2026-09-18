@@ -5,7 +5,7 @@ import React from 'react';
 const SingleNotePage =async ({params}:{ params: Promise<{id:string}>}) => {
 
     const {id} =await params
-    const note=NoteById(Number(id))
+    const note=await NoteById(Number(id))
     if(!note){
         return notFound()
     }

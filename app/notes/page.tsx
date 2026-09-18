@@ -4,8 +4,8 @@ import { getNotes } from "../services/notes";
  
 
 
-function NotesPage() {
-    const notes =getNotes()
+async function NotesPage() {
+    const notes = await getNotes()
     return (
         <div className="container max-h-full m-auto">
             <h1 className="text-3xl underline  mb-10">All Notes</h1>

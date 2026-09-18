@@ -2,8 +2,8 @@ import React from 'react';
 import { getBlogData } from '../services/blogs';
 import Link from 'next/link';
 
-const BlogPage = () => {
-    const blogs=getBlogData()
+const BlogPage = async () => {
+    const blogs=await getBlogData()
     return (
         <div className='container mt-0 m-auto '>
              <h1 className=' text-2xl text-center underline'>All blogs are her</h1>

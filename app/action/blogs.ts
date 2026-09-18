@@ -10,7 +10,7 @@ export const createNewBlog=async(formData:FormData)=>{
     const title = formData.get('title') as string;
     const slug = formData.get('slug') as string;
     const content = formData.get('content') as string
-    addBlog(title,slug,content)
+    await addBlog(title,slug,content)
     revalidatePath("/blog")
     redirect("/blog")
 

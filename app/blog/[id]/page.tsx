@@ -3,7 +3,7 @@ import React from 'react';
 
 const BlogBYIdPage = async({params}:{params:Promise<{id:string}>}) => {
     const {id} = await params
-    const blog=blogById(Number(id))
+    const blog=await blogById(Number(id))
     return (
         <div className='container m-auto mt-5'>
             <div className='w-1/2 m-auto  shadow-amber-300 shadow-lg px-2 py-4 rounded-2xl'>
