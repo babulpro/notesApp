@@ -77,3 +77,8 @@ export const addBlog=(title:string,slug:string,content:string)=>{
     blogData.push({id:nextId++,content,slug,title})
     
 }
+
+
+export const blogById=(id:number)=>{
+  return blogData.find((blog)=>blog.id===id)
+}

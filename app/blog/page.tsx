@@ -1,5 +1,6 @@
 import React from 'react';
 import { getBlogData } from '../services/blogs';
+import Link from 'next/link';
 
 const BlogPage = () => {
     const blogs=getBlogData()
@@ -10,9 +11,9 @@ const BlogPage = () => {
                 {blogs.length>0 &&
                 blogs.map((blog)=>(
                     <div key={blog.id} className=' mb-10 shadow-2xl p-2'>
-                        <h1>{blog.title}</h1>
-                        <h1>{blog.content}</h1>                         
+                        <h1>{blog.title}</h1>                                                 
                         <h1>{blog.slug}</h1>
+                        <Link key={blog.id} href={`/blog/${blog.id}`}>Details</Link>
                          
                     </div>
                 ))

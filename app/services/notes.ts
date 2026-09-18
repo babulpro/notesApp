@@ -1,3 +1,5 @@
+import { revalidatePath } from "next/cache";
+
 const notes = [
   {
     id: 1,
@@ -59,4 +61,29 @@ export const getNotes=()=>{
 let nextId:number = 11
 export const addNote=(content:string,important:boolean)=>{
     notes.push({id:nextId++,content,important})
+}
+
+
+export const NoteById=(id:number)=>{
+    return notes.find((note)=>note.id===id)
+}
+
+
+
+
+
+
+export const toggleImportance = (id: number) => {
+  const note = notes.find((note) => note.id === id)
+  if (note) {
+    note.important = !note.important
+  }
+}
+
+
+export const toggleNoteImportance = async (formData: FormData) => {
+  const id = Number(formData.get("id"))
+  toggleImportance(id)
+  revalidatePath(`/notes/${id}`)
+  revalidatePath("/notes")
 }
